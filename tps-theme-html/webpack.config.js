@@ -25,7 +25,7 @@ module.exports = function() {
       hot: true,
       open: true,
       inline: true,
-      host: '192.168.0.12'
+      host: 'localhost'
     },
     plugins: [
       new HtmlWebPackPlugin({
