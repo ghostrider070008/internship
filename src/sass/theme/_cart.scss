@@ -1,0 +1,391 @@
+$bg-white: $white;
+$product-title-color: $gray-700;
+$product-item--price-color: $gray-700;
+$product-item-qty-number-color: $gray-700;
+$product-item-qty-bg-color: $gray-300;
+$coupon-title-color: $gray-700;
+$cart-details-color: $gray-700;
+$delete-product-color: $info;
+$text-white: $white;
+$border-secondary: $secondary;
+$border-color: $gray-200;
+$delete-product-bg: rgba($light-red, 0.05);
+$coupon-input-bg: $gray-100;
+
+.main-content {
+  .cart {
+    .page-title {
+      padding-left: 24px;
+    }
+    .container {
+      padding: 0;
+    }
+    .product-item {
+      position: relative;
+      padding: 15px 28px;
+      background: $bg-white;
+      box-shadow: 0 4px 6px rgba($black, 0.1);
+      margin-bottom: 20px;
+      &-img {
+      }
+      &-info {
+        .product-item-title {
+          color: $product-title-color;
+          text-transform: capitalize;
+          margin-bottom: 20px;
+          font-weight: 400;
+        }
+        .product-item-price,
+        .product-item-unit-price {
+          font-size: 1.14;
+          font-weight: 700;
+          margin-bottom: 10px;
+        }
+        .product-item-qty {
+          &-amount {
+            padding: 3px 17px;
+            border-radius: 0.6rem;
+            background: $bg-white;
+            border: 1px solid $border-secondary;
+            &-minus,
+            &-plus {
+              cursor: pointer;
+            }
+          }
+          &-number {
+            color: $product-item-qty-number-color;
+            font-size: 1.14;
+          }
+        }
+      }
+      .delete-product {
+        position: absolute;
+        top: 9px;
+        left: 9px;
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        text-align: center;
+        border-radius: 50%;
+        background: $delete-product-bg;
+        .fa-times {
+          color: $delete-product-color;
+          font-size: 0.7rem;
+          position: relative;
+          top: -1px;
+        }
+      }
+    }
+    .coupon {
+      background: $bg-white;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      padding: 15px 24px;
+      &-title {
+        color: $coupon-title-color;
+        font-size: 1.28rem;
+        font-weight: 700;
+      }
+      .form-control {
+        background: $coupon-input-bg;
+        border-color: transparent;
+        &::placeholder {
+          font-size: 1.14rem;
+        }
+      }
+      .input-group-append {
+        .btn-theme {
+          color: $text-white;
+          font-weight: 700;
+          font-size: 1.14rem;
+          font-weight: 700;
+          padding: 7px 29px;
+        }
+      }
+    }
+    &-details {
+      background: $bg-white;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-bottom: 25px;
+      padding: 25px 24px;
+      font-size: 1.14rem;
+      color: $cart-details-color;
+      &-price {
+        margin-bottom: 25px;
+      }
+      &-shipping {
+        margin-bottom: 25px;
+      }
+      &-coupon {
+        padding-bottom: 25px;
+        margin-bottom: 25px;
+        border-bottom: 2px solid $border-color;
+      }
+      &-total-price {
+        font-size: 2.14rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 25px;
+      }
+      .btn-theme {
+        font-weight: 900;
+        padding: 8px 40px;
+        display: block;
+        width: 100%;
+      }
+    }
+    .product-additional-info {
+      margin-bottom: 15px;
+      padding-left: 24px;
+    }
+  }
+}
+
+@media only screen and (min-width: 400px) {
+  .main-content {
+    .cart {
+      .product-item {
+        &-img {
+          width: auto;
+        }
+        &-info {
+          width: auto;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 576px) {
+  .main-content {
+    .cart {
+      .container {
+        padding: 0 15px;
+      }
+      .page-title {
+        padding-left: 0;
+      }
+      .product-additional-info {
+        padding-left: 0;
+      }
+      &-details {
+        .btn-theme {
+          display: block;
+          width: 50%;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .main-content {
+    .cart {
+      .page-title {
+        margin-bottom: 10px;
+        font-size: 1.3rem;
+      }
+      .product-item {
+        margin-bottom: 0;
+        &:last-of-type {
+          margin-bottom: 30px;
+        }
+        &-info {
+          .product-item-title {
+            font-size: 1.14rem;
+          }
+          .product-item-price,
+          .product-item-unit-price {
+            font-size: 1.14rem;
+            color: $product-item--price-color;
+            font-weight: 400;
+            margin-left: -9px;
+          }
+          .product-item-qty {
+            &-amount {
+              padding: 12px 13px;
+              border: transparent;
+              background: $product-item-qty-bg-color;
+              border-radius: 4px;
+              margin-left: -9px;
+            }
+          }
+        }
+        .delete-product {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          left: 9px;
+        }
+      }
+      .coupon {
+        margin-bottom: 60px;
+      }
+      &-details {
+        .btn-theme {
+          display: block;
+          width: 100%;
+          margin: 0 auto;
+        }
+      }
+      .product-additional-info-delivery {
+        .title {
+          margin-right: 25px;
+        }
+        .content {
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+      }
+      .payments {
+        .title {
+          margin-right: 18px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .main-content {
+    .cart {
+      margin-bottom: 35px;
+      .product-item {
+        &-info {
+          .product-item-price {
+            margin-left: -9px;
+          }
+          .product-item-qty {
+            &-amount {
+              margin-left: -23px;
+            }
+          }
+          .product-item-unit-price {
+            margin-left: -10px;
+          }
+        }
+      }
+      .product-additional-info-delivery {
+        .title {
+          margin-right: 28px;
+        }
+        .content {
+          width: 300px;
+        }
+      }
+      .payments {
+        .title {
+          margin-right: 24px;
+        }
+        &-logo {
+          width: 8%;
+        }
+      }
+    }
+    .you-may-also-like {
+      margin-bottom: 35px;
+    }
+  }
+}
+
+@media only screen and (min-width: 1230px) {
+  .main-content {
+    .cart {
+      margin-bottom: 65px;
+      .page-title {
+        font-size: 1.71rem;
+      }
+      .unit-price-title {
+        padding-left: 59px;
+      }
+      .qty-title {
+        padding-left: 43px;
+      }
+      .total-price-title {
+        padding-left: 49px;
+      }
+      .product-item {
+        &-info {
+          .product-item-price {
+            margin-left: 0;
+            padding-left: 37px;
+          }
+          .product-item-qty {
+            &-amount {
+              margin-left: -51px;
+            }
+          }
+          .product-item-unit-price {
+            margin-left: -34px;
+          }
+        }
+      }
+      .product-additional-info-delivery {
+        .title {
+          margin-right: 28px;
+        }
+        .content {
+          width: 300px;
+        }
+      }
+      .payments {
+        .title {
+          margin-right: 28px;
+        }
+        &-logo {
+          width: 8%;
+        }
+      }
+    }
+    .you-may-also-like {
+      margin-bottom: 65px;
+    }
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .main-content {
+    .cart {
+      .unit-price-title {
+        padding-left: 87px;
+      }
+      .qty-title {
+        padding-left: 60px;
+      }
+      .total-price-title {
+        padding-left: 78px;
+      }
+      .product-item {
+        &-info {
+          .product-item-price {
+            margin-left: 0;
+            padding-left: 59px;
+          }
+          .product-item-qty {
+            &-amount {
+              margin-left: -51px;
+            }
+          }
+          .product-item-unit-price {
+            margin-left: -19px;
+          }
+        }
+      }
+      .product-additional-info-delivery {
+        .content {
+          width: 382px;
+        }
+      }
+      .payments {
+        .title {
+          margin-right: 18px;
+        }
+        &-logo {
+          width: 9%;
+        }
+      }
+    }
+  }
+}
