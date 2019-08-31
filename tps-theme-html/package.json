@@ -4,18 +4,18 @@
   "description": "tps-theme-html",
   "main": "index.js",
   "scripts": {
-    "build": "npx webpack --config webpack.config.js",
-    "watch": "npx webpack --watch",
+    "build": "webpack --config webpack.config.js",
+    "watch": "webpack --mode development --watch",
     "start": "webpack-dev-server"
   },
   "author": "Aleksandar Maksimovic",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.2.2",
-    "@babel/preset-env": "^7.2.3",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
     "@fortawesome/fontawesome-free": "^5.8.1",
     "autoprefixer": "^9.5.1",
-    "babel-loader": "^8.0.5",
+    "babel-loader": "^8.0.6",
     "babel-minify-webpack-plugin": "^0.3.1",
     "clean-webpack-plugin": "^1.0.0",
     "css-loader": "^2.1.1",
@@ -38,6 +38,7 @@
     "webpack-dev-server": "^3.3.1"
   },
   "dependencies": {
+    "@babel/preset-react": "^7.0.0",
     "bootstrap": "^4.3.1",
     "desoslide": "^2.2.0",
     "jquery": "^3.3.1",
@@ -46,6 +47,8 @@
     "load-google-maps-api": "^1.3.3",
     "owl.carousel": "^2.3.4",
     "popper.js": "^1.15.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
     "select2": "^4.0.6-rc.1"
   }
 }

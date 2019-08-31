@@ -1,3 +1,14 @@
+//ReactJS
+import React from 'react';
+import ReactDom from 'react-dom';
+
+class App extends React.Component {
+    render() {
+      return <h6>React successfully connect</h6>
+    }
+};
+ReactDom.render(<App/>, document.getElementById('root'));
+
 //Bootstrap
 import 'bootstrap';
 
