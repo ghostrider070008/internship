@@ -95,14 +95,9 @@ module.exports = function() {
           ]
         },
         {
-          test: /\.m?js$/,
-          exclude: /(node_modules|bower_components)/,
-          use: {
-            loader: 'babel-loader',
-            options: {
-              presets: ['@babel/preset-env']
-            }
-          }
+          test: /\.jsx?$/,
+          exclude: /node_modules/,
+          use: "babel-loader"
         },
         {
           test: /\.(jpg|jpeg|gif|png|svg|webp)$/,

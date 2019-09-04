@@ -2,6 +2,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 
+<<<<<<< Updated upstream
 class App extends React.Component {
     render() {
       return <h6>React successfully connect</h6>
@@ -9,6 +10,8 @@ class App extends React.Component {
 };
 ReactDom.render(<App/>, document.getElementById('root'));
 
+=======
+>>>>>>> Stashed changes
 //Bootstrap
 import 'bootstrap';
 
@@ -37,6 +40,20 @@ import leadSliderImg from '../images/lead-slider-img-01.png';
 import leadSliderImgBig from '../images/lead-slider-big-img-01.png';
 import subscribeSmallImg from '../images/subscribe-bg-img-01.png';
 import subscribeBgImg from '../images/subscribe-bg-img-02.png';
+
+/* let newReact = document.createElement('div');
+newReact.id = "root";
+document.body.append(newReact); */
+
+class App extends React.Component {
+  render() {
+      return <div>
+          <p>ReactJS connect successfully</p>
+      </div>
+  }
+};
+ReactDom.render(<App/>, document.getElementById('root'));
+
 
 $(document).ready(() => {
   const hamburger = $('.hamburger');
