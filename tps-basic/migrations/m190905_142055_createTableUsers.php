@@ -14,13 +14,13 @@ class m190905_142055_createTableUsers extends Migration
     {
         $this->createTable('users', [
             'id' => $this->primaryKey(),
-            'username' => $this->string(45)->notNull(),
+            'username' => $this->string(45),
             'email' => $this->string(150)->notNull(),
             'password_hash' => $this->string(300)->notNull(),
             'token' => $this->string(150)->notNull(),
-            'firstname' => $this->string(45)->notNull(),
-            'lastname' => $this->string(45)->notNull(),
-            'surname' => $this->string(45)->notNull(),
+            'firstname' => $this->string(45),
+            'lastname' => $this->string(45),
+            'surname' => $this->string(45),
             'phoneNumber' => $this->integer(11)->notNull(),
             'createAt' => $this->timestamp()->notNull()->defaultExpression('CURRENT_TIMESTAMP'),
             'updateAt' => $this->timestamp()->notNull()->defaultExpression('CURRENT_TIMESTAMP'),
