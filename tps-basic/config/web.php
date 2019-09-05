@@ -1,5 +1,4 @@
 <?php
-
 $params = require __DIR__ . '/params.php';
 $db = file_exists(__DIR__.'/dblocal.php') ?
     (require __DIR__ . '/dblocal.php'):
