@@ -13,7 +13,10 @@ $config = [
         '@npm'   => '@vendor/npm-asset',
     ],
     'components' => [
-        'auth'=> ['class'=>\app\components\AuthComponent::class],
+        'auth'=> [
+            'class' => '\app\components\AuthComponent',
+            'auth_class' => 'app\models\Users',
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'D9ToPkV7-0dkhzTXSar7j7Om7Iq0f-E2',
@@ -45,14 +48,15 @@ $config = [
             ],
         ],
         'db' => $db,
-        /*
+
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+
             ],
         ],
-        */
+
     ],
     'params' => $params,
 ];
