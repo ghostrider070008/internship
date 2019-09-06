@@ -42,7 +42,7 @@ class UsersBase extends \yii\db\ActiveRecord
             [['username', 'firstname', 'lastname', 'surname'], 'string', 'max' => 45],
             [['email', 'token'], 'string', 'max' => 150],
             [['password_hash'], 'string', 'max' => 300],
-            [['email'], 'unique'],
+
         ];
     }
 

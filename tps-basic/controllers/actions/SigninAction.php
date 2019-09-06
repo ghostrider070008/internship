@@ -5,7 +5,7 @@ namespace app\controllers\actions;
 
 
 use app\base\BaseAction;
-use yii\web\Controller;
+use app\models\Users;
 
 class SigninAction extends BaseAction
 {
