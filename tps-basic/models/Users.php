@@ -1,44 +1,36 @@
 <?php
-
 namespace app\models;
-
 use Yii;
 use yii\web\IdentityInterface;
-
 class Users extends UsersBase implements IdentityInterface
 {
     public $password;
     public $passwordRepeat;
-
     const SCENARIO_SIGNUP = 'signup';
     const SCENARIO_SIGNIN = 'signin';
-
     public function scenarioSignup()
     {
         $this->setScenario(self::SCENARIO_SIGNUP);
         return $this;
     }
-
     public function scenarioSignIn()
     {
         $this->setScenario(self::SCENARIO_SIGNIN);
         return $this;
     }
-
     public function rules()
     {
         return array_merge([
             ['password', 'string', 'min' => 8],
             ['password', 'required'],
             ['passwordRepeat', 'compare', 'compareAttribute' => 'password'],
-            ['email','email'],
+            ['email', 'email'],
             ['email', 'exist', 'on' => self::SCENARIO_SIGNIN],
             [['email'], 'unique', 'on' => self::SCENARIO_SIGNUP],
         ],
             parent::rules()
         );
     }
-
     public function attributeLabels()
     {
         return array_merge(
@@ -48,7 +40,6 @@ class Users extends UsersBase implements IdentityInterface
             ]
             , parent::attributeLabels());
     }
-
     /**
      * Finds an identity by the given ID.
      * @param string|int $id the ID to be looked for
@@ -60,12 +51,10 @@ class Users extends UsersBase implements IdentityInterface
     {
         return Users::find()->andWhere(['id' => $id])->one();
     }
-
     public function getUsername()
     {
         return $this->username;
     }
-
     /**
      * Finds an identity by the given token.
      * @param mixed $token the token to be looked for
@@ -79,7 +68,6 @@ class Users extends UsersBase implements IdentityInterface
     {
         // TODO: Implement findIdentityByAccessToken() method.
     }
-
     /**
      * Returns an ID that can uniquely identify a user identity.
      * @return string|int an ID that uniquely identifies a user identity.
@@ -88,7 +76,6 @@ class Users extends UsersBase implements IdentityInterface
     {
         return $this->id;
     }
-
     /**
      * Returns a key that can be used to check the validity of a given identity ID.
      *
@@ -110,7 +97,6 @@ class Users extends UsersBase implements IdentityInterface
     {
         // TODO: Implement getAuthKey() method.
     }
-
     /**
      * Validates the given auth key.
      *
