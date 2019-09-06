@@ -45,6 +45,18 @@ $config = [
                 'encryption' => 'tls',
             ],
         ],
+        'i18n'=>[
+            'translations' => [
+                'app*'=>[
+                'class'=>\yii\i18n\PhpMessageSource::class,
+                'fileMap'=>[
+                    'app'=>'app.php',
+                    'app/rbac'=>'rbac.php',
+                    ]
+
+                ]
+            ]
+        ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [

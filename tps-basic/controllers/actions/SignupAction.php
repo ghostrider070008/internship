@@ -15,7 +15,10 @@ class SignupAction extends BaseAction
         $model=new Users();
         if(\Yii::$app->request->isPost){
             $model->load(\Yii::$app->request->post());
-            \Yii::$app->auth->signUp($model);
+            if(\Yii::$app->auth->signUp($model)){
+                \Yii::$app->response->redirect('/auth/signin');
+            }
+
         }
         return $this->controller->render('signup',['model'=>$model]);
     }
