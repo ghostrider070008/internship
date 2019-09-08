@@ -23,9 +23,6 @@ class SignupAction extends BaseAction
             if ($comp->signUp($model)) {
                 \Yii::$app->session->addFlash('success', 'Пользователь успешно зарегистрирован с id '.$model->id);
                 return Controller::redirect(['/auth/signin']);
-            } else {
-                \Yii::$app->session->addFlash('success', 'Пользователь c email '.$model->email.' уже существует.
-                Укажите другой email или <a href="/auth/signin">авторизуйтесь</a>');
             }
         }
         return $this->controller->render('signup',['model'=>$model]);
