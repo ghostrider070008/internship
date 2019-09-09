@@ -11,8 +11,8 @@
     <?php $form = \yii\bootstrap\ActiveForm::begin();?>
     <?=$form->field($model, 'username')?>
     <?=$form->field($model, 'email')?>
-    <?=$form->field($model, 'password')?>
-    <?=$form->field($model, 'passwordRepeat')?>
+    <?=$form->field($model, 'password')->passwordInput()?>
+    <?=$form->field($model, 'passwordRepeat')->passwordInput()?>
     <?=$form->field($model, 'surname')?>
     <?=$form->field($model, 'firstname')?>
     <?=$form->field($model, 'lastname')?>

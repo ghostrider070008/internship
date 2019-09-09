@@ -1,9 +1,19 @@
 <?php
+
 namespace app\components;
+
 use app\base\BaseComponent;
 use app\models\Users;
+
 class AuthComponent extends BaseComponent
 {
+    public $classModelUsers;
+
+    public function getClassModelUsers()
+    {
+        return new $this->classModelUsers();
+    }
+
     public function signUp(Users &$user)
     {
         $user->scenarioSignup();
@@ -17,6 +27,7 @@ class AuthComponent extends BaseComponent
         }
         return true;
     }
+
     public function signIn(Users &$model)
     {
         $model->scenarioSignIn();
@@ -24,24 +35,28 @@ class AuthComponent extends BaseComponent
             return false;
         }
         $user = $this->getUserByEmail($model->email);
-        if(!$this->validatePassword($model->password, $user->password_hash)){
+        if (!$this->validatePassword($model->password, $user->password_hash)) {
             $model->addError('password', 'Неверный пароль или учетная запись не активирована');
             return false;
         }
         return \Yii::$app->user->login($user, 3600);
     }
+
     private function genPasswordHash($password)
     {
         return \Yii::$app->security->generatePasswordHash($password);
     }
+
     private function genToken()
     {
         return \Yii::$app->security->generateRandomString(25);
     }
+
     private function getUserByEmail($email)
     {
         return Users::find()->andWhere(['email' => $email])->one();
     }
+
     private function validatePassword($password, $passwordHash)
     {
         return \Yii::$app->security->validatePassword($password, $passwordHash);

@@ -11,7 +11,7 @@
     <?php $form = \yii\bootstrap\ActiveForm::begin();?>
 
     <?=$form->field($model, 'email')?>
-    <?=$form->field($model, 'password')?>
+    <?=$form->field($model, 'password')->passwordInput()?>
 
     <div class="col-md-6">
         <button class="btn btn-default"  type="submit">Войти</button>
