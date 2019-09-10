@@ -5,14 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.config.js",
-<<<<<<< Updated upstream
-    "watch": "webpack --mode development --watch",
-    "start": "webpack-dev-server"
-=======
     "watch": "webpack --watch",
     "start": "webpack-dev-server",
     "dev": "webpack --mode development"
->>>>>>> Stashed changes
   },
   "author": "Aleksandar Maksimovic",
   "license": "ISC",
