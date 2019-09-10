@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4dc2d2139382908f3605f1ff49b182fc",
+    "content-hash": "f0ea950cff08dbb16e5ae49b11a1e7aa",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -78,6 +78,21 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/bestiejs/punycode.js/zipball/38c8d3131a82567bfef18da09f7f4db68c84f8a3",
                 "reference": "38c8d3131a82567bfef18da09f7f4db68c84f8a3"
+            },
+            "type": "bower-asset"
+        },
+        {
+            "name": "bower-asset/react",
+            "version": "v16.1.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:facebook/react-bower.git",
+                "reference": "0a2fda23ec873d50bafde1f7ae6d396ab32a490a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/facebook/react-bower/zipball/0a2fda23ec873d50bafde1f7ae6d396ab32a490a",
+                "reference": "0a2fda23ec873d50bafde1f7ae6d396ab32a490a"
             },
             "type": "bower-asset"
         },
@@ -439,6 +454,48 @@
             ],
             "description": "Locale functions required by libphonenumber-for-php",
             "time": "2019-04-26T07:28:50+00:00"
+        },
+        {
+            "name": "opw/yii2-react",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/opw/yii2-react.git",
+                "reference": "62fffbbd7789e7583ed11184854f304a6484d8ba"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/opw/yii2-react/zipball/62fffbbd7789e7583ed11184854f304a6484d8ba",
+                "reference": "62fffbbd7789e7583ed11184854f304a6484d8ba",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/react": "*",
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "opw\\react\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT License"
+            ],
+            "authors": [
+                {
+                    "name": "Paulo Santiago",
+                    "email": "paulo@mobilizy.com.br",
+                    "homepage": "http://www.mobilizy.com.br/"
+                }
+            ],
+            "description": "The React.js library extension for the Yii framework",
+            "keywords": [
+                "react",
+                "yii2"
+            ],
+            "time": "2015-05-27T01:06:26+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -3950,7 +4007,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "opw/yii2-react": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
