@@ -23,7 +23,7 @@ class Users extends UsersBase implements IdentityInterface
         return array_merge([
             ['password', 'string', 'min' => 8],
             ['password', 'required'],
-            ['passwordRepeat'],
+            ['passwordRepeat','required'],
             ['passwordRepeat', 'compare', 'compareAttribute' => 'password'],
             ['email', 'email'],
             ['email', 'exist', 'on' => self::SCENARIO_SIGNIN],
