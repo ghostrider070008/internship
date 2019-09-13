@@ -85,11 +85,15 @@ $config = [
         ],*/
     ],
 
-    /*'modules' => [
-        'user' => [
+    'modules' => [
+        /*'user' => [
             'class' => 'dektrium\user\Module',
+        ],*/
+        'api' => [
+            'basePath' => '@app/modules/api',
+            'class' => 'app\modules\api\Module',
         ],
-    ],*/
+    ],
 
     'params' => $params,
 ];

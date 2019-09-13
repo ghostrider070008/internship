@@ -3,16 +3,16 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Users;
-use app\models\UsersSearch;
+use app\models\AddressBase;
+use app\models\AddressSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * ProfileController implements the CRUD actions for Users model.
+ * AddressController implements the CRUD actions for Address model.
  */
-class ProfileController extends Controller
+class AddressController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -30,12 +30,12 @@ class ProfileController extends Controller
     }
 
     /**
-     * Lists all Users models.
+     * Lists all Address models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = \Yii::$container->get(UsersSearch::class);
+        $searchModel = new AddressSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class ProfileController extends Controller
     }
 
     /**
-     * Displays a single Users model.
+     * Displays a single Address model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -58,13 +58,13 @@ class ProfileController extends Controller
     }
 
     /**
-     * Creates a new Users model.
+     * Creates a new Address model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = \Yii::$container->get(Users::class);;
+        $model = new Address();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -76,7 +76,7 @@ class ProfileController extends Controller
     }
 
     /**
-     * Updates an existing Users model.
+     * Updates an existing Address model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -86,23 +86,17 @@ class ProfileController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post())) {
-
-            /*$model->createAt = Yii::$app->formatter->asTimestamp(date($model->createAt));
-            $model->updateAt = Yii::$app->formatter->asTimestamp(date($model->updateAt));*/
-
-            if ($model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
-            }
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['index', 'id' => $model->id]);
         }
 
-        return $this->redirect('index', [
-
+        return $this->render('update', [
+            'model' => $model,
         ]);
     }
 
     /**
-     * Deletes an existing Users model.
+     * Deletes an existing Address model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -112,19 +106,21 @@ class ProfileController extends Controller
     {
         $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+        return $this->redirect('index', [
+
+        ]);
     }
 
     /**
-     * Finds the Users model based on its primary key value.
+     * Finds the AddressBase model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Users the loaded model
+     * @return Address the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Users::findOne($id)) !== null) {
+        if (($model = AddressBase::findOne($id)) !== null) {
             return $model;
         }
 

@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: Sergio
  * Date: 07.09.2019
- * Time: 22:21
+ * Time: 22:22
  */
 
 namespace app\components;
@@ -18,7 +18,7 @@ class RbacComponent extends Component
     {
         $authManager = \Yii::$app->authManager;
 
-        $authManager->removeAll();
+        $authManager->removeAll():
 
         $admin = $authManager->createRole('admin');
         $user = $authManager->createRole('user');

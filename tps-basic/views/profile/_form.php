@@ -16,10 +16,6 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'password_hash')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'token')->textInput(['maxlength' => true]) ?>
-
     <?= $form->field($model, 'firstname')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'lastname')->textInput(['maxlength' => true]) ?>
@@ -28,9 +24,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'phoneNumber')->textInput() ?>
 
+
     <?= $form->field($model, 'createAt')->textInput() ?>
 
     <?= $form->field($model, 'updateAt')->textInput() ?>
+
 
     <?= $form->field($model, 'status')->textInput() ?>
 
