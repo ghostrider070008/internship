@@ -25,7 +25,8 @@ module.exports = function() {
       hot: true,
       open: true,
       inline: true,
-      host: 'localhost'
+      host: 'localhost',
+      historyApiFallback: true
     },
     plugins: [
       new HtmlWebPackPlugin({
