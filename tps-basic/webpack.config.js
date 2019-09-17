@@ -4,7 +4,7 @@ module.exports = {
   entry: './src/app.js',
   output: {
     filename: 'main.js',
-    path:  path.resolve(__dirname, 'dist')
+    path:  path.resolve(__dirname, './web/dist')
   },
   mode: 'development',
   module: {
@@ -21,7 +21,7 @@ module.exports = {
     ]
   },
   devServer: {
-    contentBase: path.resolve(__dirname, 'dist'),
+    contentBase: path.resolve(__dirname, './web/dist'),
     historyApiFallback: true
   }
 }

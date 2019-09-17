@@ -1,70 +1,74 @@
 <?php
-
 namespace app\models;
-
+use Yii;
 use yii\web\IdentityInterface;
-
 class Users extends UsersBase implements IdentityInterface
 {
     public $password;
     public $passwordRepeat;
-
     const SCENARIO_SIGNUP = 'signup';
     const SCENARIO_SIGNIN = 'signin';
-
     public function scenarioSignup()
     {
         $this->setScenario(self::SCENARIO_SIGNUP);
         return $this;
     }
-
     public function scenarioSignIn()
     {
         $this->setScenario(self::SCENARIO_SIGNIN);
         return $this;
     }
-
     public function rules()
     {
         return array_merge([
             ['password', 'string', 'min' => 8],
             ['password', 'required'],
+            ['passwordRepeat','required'],
             ['passwordRepeat', 'compare', 'compareAttribute' => 'password'],
-            ['email','email'],
+            ['email', 'email'],
             ['email', 'exist', 'on' => self::SCENARIO_SIGNIN],
             [['email'], 'unique', 'on' => self::SCENARIO_SIGNUP],
         ],
             parent::rules()
         );
     }
-
-
+    public function attributeLabels()
+    {
+        return array_merge(
+            [
+                'password' => Yii::t('app', 'Password'),
+                'passwordRepeat' => Yii::t('app', 'PasswordRepeat'),
+            ]
+            , parent::attributeLabels());
+    }
     /**
      * Finds an identity by the given ID.
      * @param string|int $id the ID to be looked for
-     * @return IdentityInterface the identity object that matches the given ID.
+     * @return IdentityInterface|null the identity object that matches the given ID.
      * Null should be returned if such an identity cannot be found
      * or the identity is not in an active state (disabled, deleted, etc.)
      */
     public static function findIdentity($id)
     {
-        return Users::find()/*->cache(null, new TagDependency(['tags' => 'user_tag']))*/->andWhere(['id' => $id])->one();
+        return Users::find()->andWhere(['id' => $id])->one();
     }
-
+    public function getUsername()
+    {
+        return $this->username;
+    }
     /**
      * Finds an identity by the given token.
      * @param mixed $token the token to be looked for
      * @param mixed $type the type of the token. The value of this parameter depends on the implementation.
      * For example, [[\yii\filters\auth\HttpBearerAuth]] will set this parameter to be `yii\filters\auth\HttpBearerAuth`.
-     * @return IdentityInterface the identity object that matches the given token.
+     * @return IdentityInterface|null the identity object that matches the given token.
      * Null should be returned if such an identity cannot be found
      * or the identity is not in an active state (disabled, deleted, etc.)
      */
     public static function findIdentityByAccessToken($token, $type = null)
     {
-        return Users::find()->andWhere(['token' => $token])->one();
+        // TODO: Implement findIdentityByAccessToken() method.
     }
-
     /**
      * Returns an ID that can uniquely identify a user identity.
      * @return string|int an ID that uniquely identifies a user identity.
@@ -73,7 +77,6 @@ class Users extends UsersBase implements IdentityInterface
     {
         return $this->id;
     }
-
     /**
      * Returns a key that can be used to check the validity of a given identity ID.
      *
@@ -95,7 +98,6 @@ class Users extends UsersBase implements IdentityInterface
     {
         // TODO: Implement getAuthKey() method.
     }
-
     /**
      * Validates the given auth key.
      *
