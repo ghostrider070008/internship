@@ -23,6 +23,7 @@ class AppAsset extends AssetBundle
         'css/site.css',
     ];
     public $js = [
+        'web/dist/main.js',
         'build/HelloWorld.js'
     ];
     public $depends = [
