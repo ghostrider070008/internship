@@ -15,6 +15,7 @@ Thumbs.db
 # composer vendor dir
 /vendor
 /config/dblocal.php
+/node_modules
 
 # composer itself is not needed
 composer.phar
