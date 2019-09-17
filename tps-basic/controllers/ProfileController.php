@@ -86,19 +86,12 @@ class ProfileController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post())) {
-
-            /*$model->createAt = Yii::$app->formatter->asTimestamp(date($model->createAt));
-            $model->updateAt = Yii::$app->formatter->asTimestamp(date($model->updateAt));*/
-
-            if ($model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
-            }
+        if ($model->load(Yii::$app->request->post()) &&
+            $model->save($model->password = false, $model->updateAt = null)) {
+            return $this->redirect(['index', 'id' => $model->id]);
         }
 
-        return $this->redirect('index', [
-
-        ]);
+        return $this->render('update', ['model' => $model]);
     }
 
     /**

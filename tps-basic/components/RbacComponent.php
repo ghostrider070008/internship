@@ -18,7 +18,7 @@ class RbacComponent extends Component
     {
         $authManager = \Yii::$app->authManager;
 
-        $authManager->removeAll():
+        $authManager->removeAll();
 
         $admin = $authManager->createRole('admin');
         $user = $authManager->createRole('user');
