@@ -11,9 +11,11 @@ class SigninAction extends BaseAction
     public function run()
     {
 
-        $usersModel = \Yii::createObject(['class' => AuthComponent::class, 'classModelUsers' => Users::class]);
+        /** @var AuthComponent $comp */
+        $comp = \Yii::$app->auth;
 
-        $model = $usersModel->getClassModelUsers();
+        $model = $comp->getModel(\Yii::$app->request->post());
+
         if (\Yii::$app->request->isPost) {
             $model->load(\Yii::$app->request->post());
             if (\Yii::$app->auth->signIn($model)) {
