@@ -1,3 +1,5 @@
 node_modules
 .env
 /dist/
+/tps-theme-html/package-lock.json
+package-lock.json

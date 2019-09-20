@@ -23,9 +23,13 @@ class AppAsset extends AssetBundle
         'css/site.css',
     ];
     public $js = [
+        'dist/main.js',
+        'build/HelloWorld.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapAsset',
+        'opw\react\JSXTransformerAsset',
+        'opw\react\ReactAsset',
     ];
 }

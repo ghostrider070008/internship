@@ -36,13 +36,13 @@ class UsersBase extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['email', 'password_hash', 'token', 'phoneNumber'], 'required'],
+            [['username', 'email', 'password_hash', 'token', 'phoneNumber'], 'required'],
             [['phoneNumber', 'status'], 'integer'],
             [['createAt', 'updateAt'], 'safe'],
             [['username', 'firstname', 'lastname', 'surname'], 'string', 'max' => 45],
             [['email', 'token'], 'string', 'max' => 150],
             [['password_hash'], 'string', 'max' => 300],
-            [['email'], 'unique'],
+
         ];
     }
 

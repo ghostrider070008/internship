@@ -4,11 +4,11 @@
 namespace app\controllers;
 
 
-use app\base\BaseController;
 use app\controllers\actions\SigninAction;
 use app\controllers\actions\SignupAction;
+use yii\base\Controller;
 
-class AuthController extends BaseController
+class AuthController extends Controller
 {
     public function actions()
     {

@@ -1,30 +1,25 @@
 <?php
 
-
 namespace app\controllers\actions;
 
-
 use app\base\BaseAction;
-use yii\web\Controller;
+use app\components\AuthComponent;
+use app\models\Users;
 
 class SigninAction extends BaseAction
 {
     public function run()
     {
-        /** @var AuthComponent $comp */
-        $comp = \Yii::$app->auth;
 
-        $model = $comp->getModel(\Yii::$app->request->post());
+        $usersModel = \Yii::createObject(['class' => AuthComponent::class, 'classModelUsers' => Users::class]);
 
+        $model = $usersModel->getClassModelUsers();
         if (\Yii::$app->request->isPost) {
-
-            if ($comp->signIn($model)) {
-
-                Controller::goBack();
-
+            $model->load(\Yii::$app->request->post());
+            if (\Yii::$app->auth->signIn($model)) {
+                \Yii::$app->response->redirect('/');
             }
         }
-
         return $this->controller->render('signin', ['model' => $model]);
     }
 }
