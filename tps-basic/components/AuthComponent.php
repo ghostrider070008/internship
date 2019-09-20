@@ -29,6 +29,7 @@ class AuthComponent extends BaseComponent
         }
 
         return $model;
+        
     }
 
 
