@@ -1,21 +1,28 @@
 <?php
+
+
 namespace app\controllers\actions;
+
+
 use app\base\BaseAction;
-use app\components\AuthComponent;
 use app\models\Users;
+use yii\web\Controller;
 
 class SignupAction extends BaseAction
 {
+
     public function run()
     {
-        $usersModel = \Yii::createObject(['class' => AuthComponent::class, 'classModelUsers' => Users::class]);
+        /** @var AuthComponent $comp */
+        $comp = \Yii::$app->auth;
 
-        $model = $usersModel->getClassModelUsers();
+        $model = $comp->getModel(\Yii::$app->request->post());
 
         if(\Yii::$app->request->isPost){
-            $model->load(\Yii::$app->request->post());
-            if(\Yii::$app->auth->signUp($model)){
-                \Yii::$app->response->redirect('/auth/signin');
+
+            if ($comp->signUp($model)) {
+                \Yii::$app->session->addFlash('success', 'Пользователь успешно зарегистрирован с id '.$model->id);
+                return Controller::redirect(['/auth/signin']);
             }
         }
         return $this->controller->render('signup',['model'=>$model]);

@@ -13,7 +13,10 @@ $config = [
         '@npm'   => '@vendor/npm-asset',
     ],
     'components' => [
-        'auth'=> ['class'=>\app\components\AuthComponent::class],
+        'auth'=> [
+            'class' => '\app\components\AuthComponent',
+            'auth_class' => 'app\models\Users',
+        ],
         'response'=>[
             'formatters' => [
                 \yii\web\Response::FORMAT_JSON =>[
@@ -24,6 +27,9 @@ $config = [
 
             ],
         ],
+        'authManager' => yii\rbac\DbManager::class,
+        'rbac' => \app\components\RbacComponent::class,
+
         'request' => [
             'parsers' => [
                 'application/json'=>\yii\web\JsonParser::class,
@@ -89,6 +95,28 @@ $config = [
 
             ],
         ],
+        /*'authClientCollection' => [
+            'class'   => \yii\authclient\Collection::class,
+            'clients' => [
+                // here is the list of clients you want to use
+                // you can read more in the "Available clients" section
+                'facebook' => [
+                    'class'        => 'dektrium\user\clients\Facebook',
+                    'clientId'     => 'APP_ID',
+                    'clientSecret' => 'APP_SECRET',
+                ],
+                'google' => [
+                    'class'        => 'dektrium\user\clients\Google',
+                    'clientId'     => 'CLIENT_ID',
+                    'clientSecret' => 'CLIENT_SECRET',
+                ],
+                'vkontakte' => [
+                    'class'        => 'dektrium\user\clients\VKontakte',
+                    'clientId'     => '7128372',
+                    'clientSecret' => '9d6bd7889d6bd7889d6bd788569d0712bc99d6b9d6bd788c01e81ac274fd68164146fe8',
+                ]
+            ],
+        ],*/
     ],
     'params' => $params,
 ];
