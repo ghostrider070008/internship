@@ -14,6 +14,7 @@ $config = [
     ],
     'components' => [
         'auth'=> ['class'=>\app\components\AuthComponent::class],
+        'rbac' => \app\components\RbacComponent::class,
         'response'=>[
             'formatters' => [
                 \yii\web\Response::FORMAT_JSON =>[
