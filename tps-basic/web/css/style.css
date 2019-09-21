@@ -1,0 +1,10 @@
+.nav a,
+.nav li > form > button.logout,
+ul{
+    font-size: 20px;
+}
+
+.navbar-nav > li > a{
+    padding: 5px;
+    width: 100px;
+}
