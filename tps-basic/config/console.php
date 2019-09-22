@@ -25,6 +25,7 @@ $config = [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
+        'rbac' => \app\components\RbacComponent::class,
         'log' => [
             'targets' => [
                 [
