@@ -14,6 +14,12 @@ use yii\base\Component;
 
 class RbacComponent extends Component
 {
+
+    public function getAuthManager()
+    {
+        return \Yii::$app->authManager;
+    }
+
     public function generateRbacRules()
     {
         $authManager = \Yii::$app->authManager;

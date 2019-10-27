@@ -1,15 +1,20 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Sergio
- * Date: 30.09.2019
- * Time: 21:14
- */
+
 
 namespace app\models;
 
 
 class Products extends ProductsBase
 {
+    public $count;
 
+    public function rules()
+    {
+        return array_merge([
+            ['count', 'integer'],
+            ['type', 'integer'],
+        ],
+            parent::rules()
+        );
+    }
 }

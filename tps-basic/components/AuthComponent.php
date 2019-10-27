@@ -26,6 +26,9 @@ class AuthComponent extends BaseComponent
         if (!$model->save()) {
             return false;
         }
+
+        \Yii::$app->rbac->addRole($model->id);
+
         return true;
     }
 
@@ -101,7 +104,7 @@ class AuthComponent extends BaseComponent
         }
 
         $user->password_hash = $this->genPasswordHash($model->newPassword);
-        
+
         if (!$user->save($model->password = false, $model->updateAt = null)) {
             return false;
         }

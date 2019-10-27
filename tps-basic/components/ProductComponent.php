@@ -21,4 +21,6 @@ class ProductComponent extends BaseComponent
 
         return $product;
     }
+
+
 }

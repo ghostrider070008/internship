@@ -14,8 +14,12 @@ $config = [
     ],
     'components' => [
         'auth'=> ['class'=>\app\components\AuthComponent::class],
+        'authManager' => [
+            'class' => yii\rbac\DbManager::class,
+        ],
         'rbac' => \app\components\RbacComponent::class,
         'product' => \app\components\ProductComponent::class,
+        'baskets' => \app\components\BasketsComponent::class,
         'response'=>[
             'formatters' => [
                 \yii\web\Response::FORMAT_JSON =>[
