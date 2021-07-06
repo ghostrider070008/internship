@@ -6,6 +6,9 @@ class Users extends UsersBase implements IdentityInterface
 {
     public $password;
     public $passwordRepeat;
+    public $newPassword;
+    public $newPasswordRepeat;
+
     const SCENARIO_SIGNUP = 'signup';
     const SCENARIO_SIGNIN = 'signin';
     public function scenarioSignup()
@@ -21,10 +24,11 @@ class Users extends UsersBase implements IdentityInterface
     public function rules()
     {
         return array_merge([
-            ['password', 'string', 'min' => 8],
+            [['password', 'newPassword'], 'string', 'min' => 8],
             ['password', 'required'],
-            ['passwordRepeat','required'],
+            /*['passwordRepeat', 'required'],*/
             ['passwordRepeat', 'compare', 'compareAttribute' => 'password'],
+            ['newPasswordRepeat', 'compare', 'compareAttribute' => 'newPassword'],
             ['email', 'email'],
             ['email', 'exist', 'on' => self::SCENARIO_SIGNIN],
             [['email'], 'unique', 'on' => self::SCENARIO_SIGNUP],
@@ -38,6 +42,8 @@ class Users extends UsersBase implements IdentityInterface
             [
                 'password' => Yii::t('app', 'Password'),
                 'passwordRepeat' => Yii::t('app', 'PasswordRepeat'),
+                'newPassword' => Yii::t('app', 'New Password'),
+                'newPasswordRepeat' => Yii::t('app', 'New Password Repeat'),
             ]
             , parent::attributeLabels());
     }

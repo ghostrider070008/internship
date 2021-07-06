@@ -231,3 +231,20 @@ vendor/bin/codecept run functional,unit -- --coverage-html --coverage-xml
 ```
 
 You can see code coverage output under the `tests/_output` directory.
+
+
+
+----------------------------------------------------------------
+инициализация YII2 командой - composer global require "fxp/composer-asset-plugin" & cd "C:\Путь до папки с проектом" & composer update --prefer-dist
+
+В папке src лежит весь фронтенд проекта
+
+Для запуска приложения нужно установить node.js
+
+Затем выполнить команду из папки tps-basic: npm i
+
+npm run start - запускает локальный вебсервер с фронтендом
+
+npm run build - собирает приложение
+
+npm run watch - в реальном времени отслеживает все изменения и пересобирает проект

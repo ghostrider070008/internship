@@ -18,9 +18,14 @@ $config = [
         '@tests' => '@app/tests',
     ],
     'components' => [
+        'authManager' => [
+            'class' => yii\rbac\DbManager::class,
+        ],
+        'rbac' => \app\components\RbacComponent::class,
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
+        'rbac' => \app\components\RbacComponent::class,
         'log' => [
             'targets' => [
                 [

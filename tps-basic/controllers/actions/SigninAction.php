@@ -4,6 +4,7 @@ namespace app\controllers\actions;
 
 use app\base\BaseAction;
 use app\components\AuthComponent;
+use app\components\BasketsComponent;
 use app\models\Users;
 
 class SigninAction extends BaseAction
@@ -17,6 +18,11 @@ class SigninAction extends BaseAction
         if (\Yii::$app->request->isPost) {
             $model->load(\Yii::$app->request->post());
             if (\Yii::$app->auth->signIn($model)) {
+
+                //слияние корзин
+                \Yii::$app->baskets->mergeBaskets();
+                //
+
                 \Yii::$app->response->redirect('/');
             }
         }

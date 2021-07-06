@@ -14,7 +14,26 @@ $config = [
     ],
     'components' => [
         'auth'=> ['class'=>\app\components\AuthComponent::class],
+        'authManager' => [
+            'class' => yii\rbac\DbManager::class,
+        ],
+        'rbac' => \app\components\RbacComponent::class,
+        'product' => \app\components\ProductComponent::class,
+        'baskets' => \app\components\BasketsComponent::class,
+        'response'=>[
+            'formatters' => [
+                \yii\web\Response::FORMAT_JSON =>[
+                    'class'=> \yii\web\JsonResponseFormatter::class,
+                    'prettyPrint' => YII_DEBUG,
+                    'encodeOptions' => JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE,
+                ],
+
+            ],
+        ],
         'request' => [
+            'parsers' => [
+                'application/json'=>\yii\web\JsonParser::class,
+            ],
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'MM9pJ8EX9dJEuydzxMlKV4kPSNImOnDM',
         ],
@@ -38,8 +57,8 @@ $config = [
             'transport' => [
                 'class'=>'Swift_SmtpTransport',
                 'host'=>'smtp.gmail.com',
-                'username' => '*',
-                'password' => '*',
+                'username' => 'tpsconfirmemail@gmail.com',
+                'password' => '404a4Et4P95b',
                 'port' => '587',
                 'encryption' => 'tls',
             ],
@@ -69,6 +88,11 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'class'=>\yii\rest\UrlRule::class,
+                'controller'=>'api',
+
+
+
             ],
         ],
     ],
